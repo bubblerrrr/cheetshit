@@ -1,0 +1,19 @@
+N=int(input())
+result=0
+
+for  _ in range(N):
+    sentence=list(input().split())
+    #print(sentence)
+
+    for i in range(len(sentence)-1):
+        if "###" in sentence[i]:
+            if "###" in sentence[i+1]:
+                continue
+            else:
+                result+=1
+
+
+    if "###" in sentence[-1]:
+        result+=1
+
+print(result)

@@ -1,0 +1,21 @@
+t = int(input())
+for _ in range(t):
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    # 将a放到字典中排序
+    dict1 = {index: m for index, m in enumerate(a)}
+    # print(dic1)
+    sorted_dict1 = {o: p for o, p in sorted(dict1.items(), key=lambda item: item[1], reverse=True)}
+    # print(sorted_dict1)
+    # 将a,b倒序排列
+    b.sort(reverse=True)
+    # index和b一起排序
+    dict3 = {index: u for index, u in zip(sorted_dict1.keys(), b)}
+    #print(dict3)
+    #按照index值的大小进行排序
+    sorted_b=sorted(dict3.items(),key=lambda item:item[0])
+    #print(sorted_b)返回了将键值对以元组的形式装着的列表
+    c=[sorted_b[i][1] for i in range(n)]
+    #去掉中括号后会变成生成器，可以使用for循环按需生成值，将其变成列表生成式就不再使用循环
+    print(*c)
